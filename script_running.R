@@ -12,7 +12,7 @@ cred <- OAuthFactory$new(consumerKey='AKJsxNqX2D8uTo9orgjRirvWL', consumerSecret
 
 cred$handshake(cainfo="cacert.pem")
 	
-sindhu.tweets = searchTwitter(‘@sindhu’, n=1500)
+shivam.tweets = searchTwitter(‘@shivam’, n=1500)
 
 #Adding words to positive and negative databases
 pos.words=c(pos.words, 'Congrats', 'prizes', 'prize', 'thanks', 'thnx', 'Grt', 'gr8', 'plz', 'trending', 'recovering', 'brainstorm', 'leader')
@@ -27,7 +27,7 @@ neg.words = c(neg.words, 'Fight', 'fighting', 'wtf', 'arrest', 'no', 'not')
 #Removing emoticons
 
 #s <- searchTwitter('#emoticons', cainfo="cacert.pem")
-df <- do.call("rbind", lapply(sindhu.tweets, as.data.frame))
+df <- do.call("rbind", lapply(shivam.tweets, as.data.frame))
 df$text <- sapply(df$text,function(row) iconv(row, "latin1", "ASCII", sub=""))
 
 # Clean the tweets
